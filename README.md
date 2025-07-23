@@ -1,0 +1,818 @@
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 bg-blue-700 text-white">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Professional Construction Services</h1>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">Quality workmanship for all your construction and waterproofing needs in Karachi</p>
+=======
+    <!-- Animated Header -->
+    <header class="relative overflow-hidden bg-black text-white h-screen flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/reserve/8T8J12VQxyqYiB8UBp7E_DSCF1945.jpg?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Construction Site" 
+                 class="w-full h-full object-cover opacity-50"
+                 loading="lazy">
+        </div>
+        <div class="relative z-10 text-center px-4" data-aos="fade-up">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fadeIn">UM Construction & Waterproofing</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 opacity-90">Building excellence in Karachi since 2005</p>
+            <div class="h-1 w-32 bg-blue-500 mx-auto mb-10" data-aos="fade-right"></div>
+            <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+                Get a Free Quote
+            </button>
+        </div>
+    </header>
+
+    <!-- Services Preview -->
+    <section class="py-20 bg-white" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-6">
+>>>>>>> REPLACE
+`
+```
+``
+
+2. Update the services section with animated icons:
+
+
+```diff
+<<<<<<< SEARCH
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden border-0 transition-all duration-500 hover:shadow-xl hover:-translate-y-2 animate-fadeUp" style="animation-delay: calc(var(--delay) * 0.1s)">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/078d4905-6ab5-4112-ba72-f83b662965f1.png" alt="Professional waterproofing services applying liquid membrane" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-6 bg-white">
+                        <h3 class="font-bold text-lg text-blue-800 mb-2">Waterproofing & Underground</h3>
+                        <p class="text-gray-600">Professional waterproofing solutions for basements, roofs and underground structures.</p>
+                    </div>
+                </div>
+=======
+                <!-- Service 1 -->
+                <div class="service-card group bg-white rounded-xl shadow-lg overflow-hidden border-0 transition-all duration-500 hover:shadow-xl hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6 text-center">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-all duration-300">
+                            <i class="fas fa-tint text-blue-600 text-3xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-800 mb-3">Waterproofing</h3>
+                        <p class="text-gray-600">Complete waterproofing solutions for roofs, basements and underground structures.</p>
+                        <a href="#" class="inline-block mt-4 text-blue-600 hover:text-blue-800 transition-colors">
+                            Learn More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+>>>>>>> REPLACE
+```
+```
+
+
+3. Add more animation styles to the CSS:
+
+
+```diff
+<<<<<<< SEARCH
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+=======
+        @keyframes fadeInUp {
+            0% { 
+                opacity: 0; 
+                transform: translateY(40px);
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+>>>>>>> REPLACE
+```
+
+
+```
+4. Add smooth scrolling behavior:
+
+
+```diff
+<<<<<<< SEARCH
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+=======
+    <script>
+        // Enhanced smooth scroll with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 100; // Adjust this value to match your header height
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation class
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('[data-aos]');
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (position < windowHeight - 100) {
+                    element.classList.add('aos-animate');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+>>>>>>> REPLACE
+```
+
+
+```
+These changes will:
+1. Create a striking animated header with your company name
+2. Add a high-quality construction theme image with lazy loading
+3. Implement smooth fade-in/slide-up/zoom animations
+4. Modernize the services section with animated icons
+5. Improve smooth scrolling with header offset
+6. Use a clean black and white color scheme while keeping accent colorsHere is the updated HTML content after applying above edits:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UM Construction & Water Proofing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Logo SVG - Recreate this with your actual logo -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        @keyframes fadeInUp {
+            0% { 
+                opacity: 0; 
+                transform: translateY(40px);
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideInLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; } 
+            100% { opacity: 1; }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); } 
+        }
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --light-blue: #93c5fd;
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        .animate-fade {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-img {
+            transition: all 0.3s ease;
+        }
+        .gallery-img:hover {
+            transform: scale(1.03);
+        }
+        .whatsapp-btn:hover {
+            background-color: #25D366 !important;
+        }
+        .language-selector {
+            transition: all 0.2s ease;
+        }
+        .language-selector:hover {
+            background-color: var(--light-blue);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-blue-800">UM Construction</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-blue-800 hover:text-blue-600 font-medium">Home</a>
+                    <a href="#services" class="text-blue-800 hover:text-blue-600 font-medium">Services</a>
+                    <a href="#gallery" class="text-blue-800 hover:text-blue-600 font-medium">Gallery</a>
+                    <a href="#contact" class="text-blue-800 hover:text-blue-600 font-medium">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="languageBtn" class="language-selector px-3 py-1 rounded-full border border-blue-800 text-blue-800">
+                        English
+                    </button>
+                    <button class="md:hidden" id="mobileMenuBtn">
+                        <i class="fas fa-bars text-blue-800 text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="#home" class="block py-2 text-blue-800 hover:text-blue-600">Home</a>
+            <a href="#services" class="block py-2 text-blue-800 hover:text-blue-600">Services</a>
+            <a href="#gallery" class="block py-2 text-blue-800 hover:text-blue-600">Gallery</a>
+            <a href="#contact" class="block py-2 text-blue-800 hover:text-blue-600">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Animated Header -->
+    <header class="relative overflow-hidden bg-black text-white h-screen flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/reserve/8T8J12VQxyqYiB8UBp7E_DSCF1945.jpg?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                 alt="Construction Site" 
+                 class="w-full h-full object-cover opacity-50"
+                 loading="lazy">
+        </div>
+        <div class="relative z-10 text-center px-4" data-aos="fade-up">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fadeIn">UM Construction & Waterproofing</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-8 opacity-90">Building excellence in Karachi since 2005</p>
+            <div class="h-1 w-32 bg-blue-500 mx-auto mb-10" data-aos="fade-right"></div>
+            <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+                Get a Free Quote
+            </button>
+        </div>
+    </header>
+
+    <!-- Services Preview -->
+    <section class="py-20 bg-white" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8 text-blue-900">
+                <h2 class="text-3xl font-bold mb-6 text-center">Contact Us</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <i class="fas fa-user text-blue-700 text-2xl mb-2"></i>
+                        <h3 class="font-bold text-lg">Muhammad Ahmad</h3>
+                        <a href="tel:03026853913" class="text-blue-600 hover:text-blue-800 flex items-center justify-center mt-2">
+                            <i class="fas fa-phone-alt mr-2"></i> 0302 6853913
+                        </a>
+                    </div>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <i class="fas fa-user text-blue-700 text-2xl mb-2"></i>
+                        <h3 class="font-bold text-lg">Muhammad Maqsood</h3>
+                        <a href="tel:03014223889" class="text-blue-600 hover:text-blue-800 flex items-center justify-center mt-2">
+                            <i class="fas fa-phone-alt mr-2"></i> 0301 4223889
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-blue-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-blue-800 mb-4">Our Services</h2>
+            <p class="text-xl text-center text-gray-600 mb-12">All Maintenance Works</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Service 1 -->
+                <div class="service-card group bg-white rounded-xl shadow-lg overflow-hidden border-0 transition-all duration-500 hover:shadow-xl hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6 text-center">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-all duration-300">
+                            <i class="fas fa-tint text-blue-600 text-3xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-800 mb-3">Waterproofing</h3>
+                        <p class="text-gray-600">Complete waterproofing solutions for roofs, basements and underground structures.</p>
+                        <a href="#" class="inline-block mt-4 text-blue-600 hover:text-blue-800 transition-colors">
+                            Learn More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-all duration-300">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/03eba404-33e3-421a-9701-7b8fe366297d.png" alt="Workers applying heat proofing material on rooftop" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-blue-800 mb-2">Roof Heat Proofing</h3>
+                        <p class="text-gray-600">Advanced heat insulation solutions to keep your building cool in summer.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-all duration-300">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/52669872-50da-4de0-b03b-d180b5151f06.png" alt="Professional tile installation work in progress" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-blue-800 mb-2">Tile Fixing</h3>
+                        <p class="text-gray-600">Precision tile installation for floors, walls and backsplashes.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-all duration-300">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0386e610-8fff-414b-84a2-cee5e7b4550d.png" alt="Electrician wiring electrical panel with organized cables and safety gloves" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-blue-800 mb-2">Electrician</h3>
+                        <p class="text-gray-600">Complete electrical solutions including wiring, panel upgrades and repairs.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-all duration-300">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4dce3ee2-2ef2-4bfd-b2e0-2339acd1120e.png" alt="Plumber installing modern chrome bathroom fixtures with wrench and sealant" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-blue-800 mb-2">Plumber</h3>
+                        <p class="text-gray-600">Professional plumbing services for residential and commercial properties.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-all duration-300">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/84b85585-5a5a-4c31-a9d7-1bd27381497f.png" alt="Freshly applied grout being smoothed between tiles with grout float tool" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-blue-800 mb-2">Color + Grouting</h3>
+                        <p class="text-gray-600">Professional grouting services with color matching for perfect finishing.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 7 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-all duration-300">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f946dab5-61db-4da4-a0bd-13635cf05506.png" alt="Modern false ceiling with recessed lighting and elegant design patterns" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-blue-800 mb-2">False Ceiling</h3>
+                        <p class="text-gray-600">Custom false ceiling designs with various materials and lighting options.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 8 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-all duration-300">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3a09459d-0453-4bf6-a12d-9960427085fc.png" alt="Technician spraying termite control solution on wooden structures with protective gear" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-blue-800 mb-2">Termite (Deemak Control)</h3>
+                        <p class="text-gray-600">Effective termite treatment and prevention solutions for your property.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 9 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-all duration-300">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2d98c129-a8e7-41b9-842d-9cdcedf8a868.png" alt="Modern aluminium glass windows being installed in a high-rise building" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-blue-800 mb-2">Aluminium Glass</h3>
+                        <p class="text-gray-600">High-quality aluminium glass windows and doors installation.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 10 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-all duration-300">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4fd8abc4-f4d2-4ef7-aa9e-cd61168f5fc0.png" alt="Sturdy steel safety grills being welded and installed on balcony railing" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-blue-800 mb-2">Safety Grills</h3>
+                        <p class="text-gray-600">Custom safety grills designed for security without compromising aesthetics.</p>
+                    </div>
+                </div>
+                
+                <!-- Service 11 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 transition-all duration-300">
+                    <div class="h-40 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/538f3d97-e689-4648-86a5-641a7c03562e.png" alt="Carpenter crafting wooden door with precision tools in a well-equipped workshop" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg text-blue-800 mb-2">Carpenter (Doors, Woodwork)</h3>
+                        <p class="text-gray-600">Custom carpentry work including doors, cabinets and furniture.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-blue-800 mb-12">Our Work Gallery</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Gallery Image 1 -->
+                <div class="gallery-img overflow-hidden rounded-xl shadow-lg transform transition-all hover:scale-105 duration-500 animate-fade" data-aos="fade-up">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c31d1b49-c327-453f-8d02-fee926e14d7a.png" alt="Modern aluminium framed glass windows installed in a contemporary home exterior" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-blue-800">Aluminium Windows</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Image 2 -->
+                <div class="gallery-img overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f6a646b9-66f5-4f02-9c9c-959407ee6c70.png" alt="Roof waterproofing process showing liquid membrane application in progress" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-blue-800">Roof Water Proofing</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Image 3 -->
+                <div class="gallery-img overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/283cfe49-df79-4cfd-92b7-c5653dc394af.png" alt="Electrician installing wiring in a new construction site with safety equipment" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-blue-800">Electrician at Work</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Image 4 -->
+                <div class="gallery-img overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/78549608-cc16-4a64-ba3b-e27672fd7682.png" alt="Professionally tiled bathroom with geometric patterns and precise grout lines" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-blue-800">Tiling</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Image 5 -->
+                <div class="gallery-img overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/de7efbc6-5bb0-4274-a8e5-f6ad0f401f37.png" alt="Technician servicing air conditioning unit on a residential rooftop" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-blue-800">AC Repair/Plumbing</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Image 6 -->
+                <div class="gallery-img overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5fa06a9a-6122-4c3b-9788-2fde2a2e6803.png" alt="Elegant interior ceiling design with layered gypsum board and ambient lighting" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-blue-800">Interior Ceiling Design</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Image 7 -->
+                <div class="gallery-img overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/acdd1fcb-b606-469c-917c-42fc304ed131.png" alt="Termite control specialist spraying treatment on wooden beams in a warehouse" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-blue-800">Termite Control</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Image 8 -->
+                <div class="gallery-img overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6800ae9a-8303-46b0-b5fa-41fcc8fc860c.png" alt="Skilled carpenter measuring and cutting wood for custom cabinet in workshop" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-blue-800">Carpenter in Workshop</h3>
+                    </div>
+                </div>
+                
+                <!-- Gallery Image 9 -->
+                <div class="gallery-img overflow-hidden rounded-lg shadow-md">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e57d4a90-f83b-4ce2-8c60-a1ef3f62b40f.png" alt="Steel safety grill installation on balcony with welding sparks visible" class="w-full h-64 object-cover">
+                    <div class="p-4 bg-white">
+                        <h3 class="font-bold text-blue-800">Steel Grills and Safety Work</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-blue-800 mb-12">Contact Us</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-sm mb-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">Call Us</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-blue-700 mr-3"></i>
+                                <a href="tel:03026853913" class="text-blue-600 hover:text-blue-800">0302 6853913 (Muhammad Ahmad)</a>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-blue-700 mr-3"></i>
+                                <a href="tel:03014223889" class="text-blue-600 hover:text-blue-800">0301 4223889 (Muhammad Maqsood)</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-sm mb-6">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">Our Location</h3>
+                        <p class="text-gray-700 mb-2">
+                            <i class="fas fa-map-marker-alt text-blue-700 mr-2"></i>
+                            Bahria Heights, H Tower, Office No. 12<br>
+                            Bahria Town, Karachi
+                        </p>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">Connect With Us</h3>
+                        <a href="https://wa.me/923026853913" class="whatsapp-btn inline-flex items-center px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                            <i class="fab fa-whatsapp text-xl mr-2"></i> Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-blue-50 p-6 rounded-lg shadow-sm h-full">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">Find Us on Map</h3>
+                        <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
+                            <!-- Google Maps Embed -->
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.2318917788036!2d67.0763936150083!3d24.93004728399466!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb338d6f1f2df0d%3A0x9a9c5f8b9511ee37!2sBahria%20Town%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh%2C%20Pakistan!5e0!3m2!1sen!2s!4v1625555555555!5m2!1sen!2s" 
+                                width="100%" 
+                                height="400" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy"
+                                class="rounded-lg">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-16 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-blue-800 mb-8">Book Our Services</h2>
+            <div class="bg-white rounded-lg shadow-md p-6 max-w-2xl mx-auto">
+                <form id="bookingForm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" placeholder="Your Name" class="w-full px-4 py-2 border rounded-lg">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Phone</label>
+                            <input type="tel" placeholder="Phone Number" class="w-full px-4 py-2 border rounded-lg">
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Service Needed</label>
+                        <select class="w-full px-4 py-2 border rounded-lg">
+                            <option>Select Service</option>
+                            <option>Waterproofing</option>
+                            <option>Roof Heat Proofing</option>
+                            <option>Tile Fixing</option>
+                            <option>Electrical Work</option>
+                            <option>Plumbing</option>
+                            <option>Color + Grouting</option>
+                            <option>False Ceiling</option>
+                            <option>Termite Control</option>
+                            <option>Aluminium Glass</option>
+                            <option>Safety Grills</option>
+                            <option>Carpentry Work</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Preferred Date</label>
+                        <input type="date" class="w-full px-4 py-2 border rounded-lg">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Additional Notes</label>
+                        <textarea rows="3" placeholder="Any special requests..." class="w-full px-4 py-2 border rounded-lg"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors">Book Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-blue-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h3 class="text-2xl font-bold">UM Construction & Water Proofing</h3>
+                    <p class="mt-2">Professional maintenance and construction services</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#home" class="hover:text-blue-200">Home</a>
+                    <a href="#services" class="hover:text-blue-200">Services</a>
+                    <a href="#gallery" class="hover:text-blue-200">Gallery</a>
+                    <a href="#contact" class="hover:text-blue-200">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-blue-700 mt-6 pt-6 text-center md:text-left">
+                <p>© 2023 UM Construction & Water Proofing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Panel (hidden by default) -->
+    <div id="adminPanel" class="fixed bottom-4 right-4 bg-white rounded-lg shadow-xl border border-blue-200 p-4 hidden">
+        <button id="closeAdminBtn" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times"></i>
+        </button>
+        <h3 class="font-bold text-blue-800 mb-3">Admin Panel</h3>
+        <div class="space-y-3">
+            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
+                Update Services
+            </button>
+            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
+                Manage Gallery
+            </button>
+            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors">
+                Edit Contact Info
+            </button>
+        </div>
+    </div>
+
+    <!-- Admin Login Button (floating) -->
+    <button id="adminBtn" class="fixed bottom-4 right-4 bg-blue-800 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors">
+        <i class="fas fa-user-cog"></i>
+    </button>
+
+    <!-- Notification Toast (hidden by default) -->
+    <div id="notificationToast" class="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg hidden">
+        <div class="flex items-center">
+            <span id="notificationMessage">New offer available! 10% discount on waterproofing services</span>
+            <button id="closeNotificationBtn" class="ml-4">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced smooth scroll with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 100; // Adjust this value to match your header height
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation class
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('[data-aos]');
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (position < windowHeight - 100) {
+                    element.classList.add('aos-animate');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Language toggle
+        const languageBtn = document.getElementById('languageBtn');
+        let isEnglish = true;
+        
+        languageBtn.addEventListener('click', function() {
+            isEnglish = !isEnglish;
+            languageBtn.textContent = isEnglish ? 'English' : 'اردو';
+            // Here you would implement actual language switching logic
+            showNotification(isEnglish ? 'Language switched to English' : 'زبان اردو میں تبدیل کی گئی');
+        });
+
+        // Admin panel toggle
+        const adminBtn = document.getElementById('adminBtn');
+        const adminPanel = document.getElementById('adminPanel');
+        const closeAdminBtn = document.getElementById('closeAdminBtn');
+        
+        adminBtn.addEventListener('click', function() {
+            adminPanel.classList.toggle('hidden');
+        });
+        
+        closeAdminBtn.addEventListener('click', function() {
+            adminPanel.classList.add('hidden');
+        });
+
+        // Notification system
+        const notificationToast = document.getElementById('notificationToast');
+        const closeNotificationBtn = document.getElementById('closeNotificationBtn');
+        const notificationMessage = document.getElementById('notificationMessage');
+        
+        function showNotification(message) {
+            notificationMessage.textContent = message;
+            notificationToast.classList.remove('hidden');
+            setTimeout(() => {
+                notificationToast.classList.add('hidden');
+            }, 5000);
+        }
+        
+        closeNotificationBtn.addEventListener('click', function() {
+            notificationToast.classList.add('hidden');
+        });
+
+        // Simulate receiving a notification
+        setTimeout(() => {
+            showNotification('Special offer: 10% discount on all waterproofing services this month!');
+        }, 3000);
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>
+```
